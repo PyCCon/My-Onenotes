@@ -1,0 +1,61 @@
+Django
+
+1.建立虚拟环境
+Project Path$ python -m venv *projectname_env
+
+2.激活虚拟环境
+Project Path$ projectname_env/Source/Scripts/activate
+停止虚拟环境：
+deactivate
+
+3.虚拟环境下安装Django:
+（projectname_env）Project Path$ pip install django
+
+4.创建项目
+（projectname_env）Project Path$ django-admin.py startproject *projectname .
+
+5.创建数据库
+（projectname_env）Project Path$ python manage.py migrate
+
+6.运行服务器
+（projectname_env）Project Path$ python manage.py run server
+终止服务器：ctrl+c
+
+7.创建应用程序
+（projectname_env）Project Path$ python manage.py startapp *appname
+
+8.定义模型
+\*appname\models.py
+
+9.激活模型
+\*projectname\settings.py
+
+INSTALLED_APPS = (
+--snip--
+# my app
+'*appname',
+)
+修改数据库：
+（projectname_env）Project Path$ python manage.py makemigrations *appname
+应用迁移：
+（projectname_env）Project Path$ python manage.py migrate
+标准步骤：修改models.py;  对app调用makemigrations;  让Django迁移项目
+
+10.创建管理员
+（projectname_env）Project Path$ python manage.py createsuperuser
+
+11.映射url
+include概念
+Django 2.0 django.urls.path
+http://blog.csdn.net/qq_40272386/article/details/78800507
+
+
+
+
+12.编写视图
+*appname\views.py
+
+Def index(request):
+	Return render(request, '*appname\index.html'
+
+
